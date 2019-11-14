@@ -17,16 +17,24 @@ const books = [
 
     
 console.log("********************* Est-ce que tous les livres ont été au moins empruntés une fois ?")
-for (let index in books){
-    console.log(books[index].rented > 1);
-    }
+books.forEach(book => {
+	if(book.rented > 1 )console.log("Tous les livres ont été empruntés au moins une fois"); 
+	else console.log("Non, ce n'est pas le cas")
+});
 console.log("********************************************************")
 
 console.log("********************* Le livre le plus empruntés ?")
-let array = books.filter(book => (book.rented));
-for (let index in array){
-    console.log(Math.max(array[index].rented));
-    }
+let maxRented = books.sort(function (x, y) {
+    return x.rented - y.rented;
+    });
+    console.log(maxRented[maxRented.length - 1].title);
+console.log("*******************************************************")
+
+console.log("********************* Le livre le moins empruntés ?")
+let minRented = books.sort(function (x, y) {
+    return x.rented - y.rented;
+    });
+    console.log(minRented[0].title);
 console.log("*******************************************************")
 
 console.log("********************* Le livre avec l'ID 873495 est :")
@@ -35,9 +43,17 @@ const bookId = books.find(book => book.id === 873495);{
 }
 console.log("*******************************************************")
 
-console.log("********************* Supprimer le livre avec l'ID 873495 est :")
-const valueToRemove = 133712
-const filteredBooks = books.filter(book => book !== valueToRemove);{
-    console.log(filteredBooks)
-}
+console.log("********************* Supprimer le livre avec l'ID 113712 est :")
+const delId = books.findIndex(book => {
+	return book.id === 133712
+})
+console.log(books.splice(delId, 1));
+console.log(books);
+console.log("*******************************************************")
+
+console.log("********************* Trier les livres par ordre alphabétique (sans l'ID 133712)")
+let booksSorted = books.sort(function (x, y) {
+    return x.title.localeCompare(y.title);
+    });
+    console.log(booksSorted);
 console.log("*******************************************************")

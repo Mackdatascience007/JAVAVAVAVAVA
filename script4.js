@@ -41,5 +41,11 @@ for (let index in entrepreneurs){
     }
 console.log("********************************************************")
 
-
+console.log("********************* Noms des Entrepreneurs dans l'ordre alphabetique :")
+lastName = []
+entrepreneurs.forEach(entrepreneur =>{
+	lastName.push(`${entrepreneur.last}`);
+});
+console.log(lastName.sort())
+console.log("********************************************************")
 
