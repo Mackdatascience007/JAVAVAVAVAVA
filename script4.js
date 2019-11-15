@@ -22,9 +22,9 @@ const entrepreneurs = [
     ];
 
 console.log("********************* Entrepreneurs nés dans les années 70 :")
-let Celebrity = entrepreneurs.filter(entrepreneur => (entrepreneur.year >= 1970 && entrepreneur.year > 1980));
-for (let index in Celebrity){
-    console.log(Celebrity[index].first + " " + Celebrity[index].last);
+let celebrity = entrepreneurs.filter(entrepreneur => (entrepreneur.year >= 1970 && entrepreneur.year < 1980));
+for (let index in celebrity){
+    console.log(celebrity[index].first + " " + celebrity[index].last);
     }
 console.log("********************************************************")
 
